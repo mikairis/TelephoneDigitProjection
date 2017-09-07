@@ -1,0 +1,138 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+import java.util.*;
+
+public class Question_1mod
+{
+    public static void main(String[] args) 
+    {
+        Scanner kb = new Scanner(System.in);
+        System.out.println("Enter phone number in letters: "); // prompt to get user to insert the alphabets or numbers
+        String telInput = kb.nextLine();
+        
+        int i;
+        int count = 0;          // to count for printing dash after first 3 numbers output
+        int dashCounter = 0;    // to count for printing dash at interval every 4 numbers output
+        
+        System.out.println("How many telephone numbers do you need (enter integer: "); // prompt for required telephone number
+        int telNumRequired = kb.nextInt();      // for user to enter the number of telephone numbers required for output                
+        
+        System.out.print("Phone number you entered is: ");
+        
+        if(telInput.length() < 7) // loop to provision if number entered is less than 7, and prompt for more entry
+        {
+            System.out.println("Letters input is of insufficient length!");
+            System.out.println("Please re-enter phone number in letters:");
+            telInput = kb.nextLine();
+        }
+        
+        for(i = 0; i <= telInput.length()-1; i++) // loop to check numbers for the number of input length
+        {          
+            char phoneChar = telInput.charAt(i); // check the string of input character by character
+            if(count == 3 && phoneChar != ' ') // by 3rd number printed, dash is to be printed
+            {
+                System.out.print("-");
+                dashCounter = 0;
+            }
+                        
+            if(dashCounter == 4 && phoneChar != ' ') // by 3rd number printed, dash is to be printed
+            {
+                System.out.print("-");
+                dashCounter = 0;
+            }
+                        
+            if (count == telNumRequired || count == telInput.length() - 1) // condition to terminate operation when 7 valid numbers are printed
+            {
+                System.out.println("");
+                break;
+            }
+            else{ // to continue the loop and check letters with assigned numbers
+                if( 
+                    phoneChar == 'A' || phoneChar == 'a' ||
+                    phoneChar == 'B' || phoneChar == 'b' ||
+                    phoneChar == 'C' || phoneChar == 'c') 
+                {
+                    System.out.print("2");
+                    count++;
+                    dashCounter++;
+                }
+                else if(
+                        phoneChar == 'D' || phoneChar == 'd' ||
+                        phoneChar == 'E' || phoneChar == 'e' ||
+                        phoneChar == 'F' || phoneChar == 'f')
+                {
+                    System.out.print("3");
+                    count++;
+                    dashCounter++;
+                }
+                else if(
+                        phoneChar == 'G' || phoneChar == 'g' ||
+                        phoneChar == 'H' || phoneChar == 'h' ||
+                        phoneChar == 'I' || phoneChar == 'i')
+                {
+                    System.out.print("4");
+                    count++;
+                    dashCounter++;
+                }
+                else if(
+                        phoneChar == 'J' || phoneChar == 'j' ||
+                        phoneChar == 'K' || phoneChar == 'k' ||
+                        phoneChar == 'L' || phoneChar == 'l')
+                {
+                    System.out.print("5");
+                    count++;
+                    dashCounter++;
+                }
+                else if(
+                        phoneChar == 'M' || phoneChar == 'm' ||
+                        phoneChar == 'N' || phoneChar == 'n' ||
+                        phoneChar == 'O' || phoneChar == 'o')
+                {
+                    System.out.print("6");
+                    count++;
+                    dashCounter++;
+                }
+                else if(
+                        phoneChar == 'P' || phoneChar == 'p' ||
+                        phoneChar == 'Q' || phoneChar == 'q' ||
+                        phoneChar == 'R' || phoneChar == 'r' ||
+                        phoneChar == 'S' || phoneChar == 's')
+                {
+                    System.out.print("7");
+                    count++;
+                    dashCounter++;
+                }
+                else if(
+                        phoneChar == 'T' || phoneChar == 't' ||
+                        phoneChar == 'U' || phoneChar == 'u' ||
+                        phoneChar == 'V' || phoneChar == 'v')
+                {
+                    System.out.print("8");
+                    count++;
+                    dashCounter++;
+                }
+                else if(
+                        phoneChar == 'W' || phoneChar == 'w' ||
+                        phoneChar == 'X' || phoneChar == 'x' ||
+                        phoneChar == 'Y' || phoneChar == 'y' ||
+                        phoneChar == 'Z' || phoneChar == 'z')
+                {
+                    System.out.print("9");
+                    count++;
+                    dashCounter++;
+                }
+                else if(    // to interpret numbers input by user and to use it as a part of the telephone number output
+                        phoneChar == '0' || phoneChar == '1' ||
+                        phoneChar == '2' || phoneChar == '3' ||
+                        phoneChar == '4' || phoneChar == '5' ||
+                        phoneChar == '6' || phoneChar == '7' ||
+                        phoneChar == '8' || phoneChar == '9')
+                {
+                    System.out.print(phoneChar);
+                    count++;
+                    dashCounter++;
+                }
+            }
+        } 
+    }
+}
